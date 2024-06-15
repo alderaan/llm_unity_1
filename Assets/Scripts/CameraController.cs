@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
         public Vector3 Center;
     }
     public GameManager gameManager;
+    public GameObject player;
 
     public static CameraBounds GetCameraBounds(Camera mainCamera)
     {
@@ -47,7 +48,9 @@ public class CameraController : MonoBehaviour
         }
 
         currentSpeed = initialSpeed + speedIncreasePerSecond * gameManager.timeSinceGameStart;
-        transform.position += new Vector3(0, currentSpeed * Time.deltaTime, 0);
+        // transform.position += new Vector3(0, currentSpeed * Time.deltaTime, 0);
+        Vector3 ptp = player.transform.position;
+        transform.position = new Vector3(ptp.x,ptp.y,-10); //
     }
 
 }
